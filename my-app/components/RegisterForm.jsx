@@ -8,10 +8,31 @@ export default function RegisterForm() {// RegisterForm u register app icindfeki
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!name || !email || !nickname || !password) {
             setError('All fields are necessary')
+            return;
+        }
+        try {
+            const res = await fetch('api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name, nickname, email, password
+                })
+            })
+            if (res.ok) {
+                const form = e.target;
+                form.reset();
+            }
+            else {
+                console.log('Registration failed');
+            }
+        } catch (error) {
+            console.log('Error during registration: ', error)
         }
     }
     return (
