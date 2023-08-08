@@ -18,7 +18,7 @@ export default function RegisterForm() {// RegisterForm u register app icindfeki
             return;
         }
         try {
-            const resUserExists = await fetch("api/userExists", {
+            const resUserExists = await fetch("api/userExist", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
