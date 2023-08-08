@@ -18,6 +18,20 @@ export default function RegisterForm() {// RegisterForm u register app icindfeki
             return;
         }
         try {
+            const resUserExists = await fetch("api/userExists", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            const { user } = await resUserExists.json();
+
+            if (user) {
+                setError("User already exists.");
+                return;
+            }
             const res = await fetch('api/register', {
                 method: 'POST',
                 headers: {
@@ -30,12 +44,13 @@ export default function RegisterForm() {// RegisterForm u register app icindfeki
             if (res.ok) {
                 const form = e.target;
                 form.reset();
+                router.push('/')
             }
             else {
                 console.log('Registration failed');
             }
         } catch (error) {
-            console.log('Error during registration: ', error)
+            console.log('Error during registration: ', error);
         }
     }
     return (
