@@ -57,7 +57,7 @@ export default function RegisterForm() {// RegisterForm u register app icindfeki
         <div className="grid place-items-center h-screen">
 
             <div className="shadow-lg p-5 rounded-lg border-t-4 border-pink-400">
-                <h1 className="text-xl font-bold my-4">Enter the details</h1>
+                <h1 className="text-xl font-bold my-4">Register</h1>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                     <input onChange={(e) => setName(e.target.value)} type="text" placeholder=" Enter your full name" className="block border border-grey-light w-full p-3 rounded mb-4" name="name" />
                     <input onChange={(e) => setNickname(e.target.value)} type="text" placeholder="Enter your nickname" className="block border border-grey-light w-full p-3 rounded mb-4" name="name" />
@@ -67,7 +67,7 @@ export default function RegisterForm() {// RegisterForm u register app icindfeki
 
                     {error && (
                         <div className="  bg-slate-500 text-sm text-white mt-2 w-fit px-3 py-1 rounded-sm">{error}</div>
-                    )}<Link href={"/register"} className='text-sm mt-3 text-right px-5'>
+                    )}<Link href={"/"} className='text-sm mt-3 text-right px-5'>
                         Already have an account? <span className='underline'>Login here</span>
                     </Link>
                 </form>
