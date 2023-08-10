@@ -34,9 +34,9 @@ export default function LoginForm() {
     };
 
     return (
-        <div className="grid place-items-center h-screen">
+        <div className="grid place-items-center h-screen ">
 
-            <div className="shadow-lg p-5 rounded-lg border-t-4 border-pink-400">
+            <div className="bg-white shadow-lg p-5 rounded-lg border-t-4 border-pink-400">
                 <h1 className="text-xl font-bold my-4">Log in</h1>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                     <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Enter your email" className="block border border-grey-light w-full p-3 rounded mb-4" name="name" />
